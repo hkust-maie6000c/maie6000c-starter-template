@@ -6,11 +6,17 @@ from services.common.models import Case, CaseStatus, Job, JobStatus
 DEMO_CASES = [
     {
         "title": "Cannot login to operations portal",
-        "description": "User reports password reset did not restore access to the operations dashboard.",
+        "description": (
+            "User reports password reset did not restore access to the "
+            "operations dashboard."
+        ),
     },
     {
         "title": "Invoice charge looks incorrect",
-        "description": "Customer believes this month includes an unexpected duplicate billing charge.",
+        "description": (
+            "Customer believes this month includes an unexpected duplicate "
+            "billing charge."
+        ),
     },
     {
         "title": "Production service outage alert",
