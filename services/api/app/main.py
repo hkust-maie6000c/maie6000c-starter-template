@@ -4,14 +4,25 @@ import logging
 from time import perf_counter
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response
-from prometheus_client import CONTENT_TYPE_LATEST, Counter, Histogram, generate_latest
+from prometheus_client import (
+    CONTENT_TYPE_LATEST,
+    Counter,
+    Histogram,
+    generate_latest,
+)
 from sqlalchemy import select, text
 from sqlalchemy.orm import Session
 
 from services.common.config import configure_logging
 from services.common.db import get_db
 from services.common.models import Case, CaseStatus, Job, JobStatus, JobType
-from services.common.schemas import CaseCreate, CaseCreateResponse, CaseRead, HealthResponse, JobRead
+from services.common.schemas import (
+    CaseCreate,
+    CaseCreateResponse,
+    CaseRead,
+    HealthResponse,
+    JobRead,
+)
 
 configure_logging()
 logger = logging.getLogger("services.api.main")
