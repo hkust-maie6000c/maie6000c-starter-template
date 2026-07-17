@@ -1,4 +1,4 @@
-.PHONY: install-dev up down reset test smoke migrate seed
+.PHONY: install-dev up down reset test smoke migrate seed lint rehearsal
 
 install-dev:
 	pip install -e .[dev]
@@ -13,7 +13,7 @@ reset:
 	docker compose down -v --remove-orphans
 
 test:
-	pytest -q
+	pytest -q tests/unit tests/integration
 
 smoke:
 	SMOKE_BASE_URL=http://localhost:8000 pytest tests/smoke -q
@@ -23,3 +23,9 @@ migrate:
 
 seed:
 	docker compose run --rm api python scripts/seed_demo_data.py
+
+lint:
+	ruff check .
+
+rehearsal:
+	bash scripts/student_rehearsal.sh
