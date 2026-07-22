@@ -269,13 +269,6 @@ When beginning your project, do the following early:
 - decide where the AI-enabled function belongs
 - update documentation as soon as design changes
 
-## Student self-check walkthrough
-
-To rehearse the end-to-end starter flow in a throwaway clone, run:
-
-```bash
-bash scripts/student_rehearsal.sh
-
 ## Final reminder
 
 This course rewards engineering maturity.
