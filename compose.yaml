@@ -6,7 +6,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
-      - "5432:5432"
+      - "${POSTGRES_HOST_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -23,7 +23,7 @@ services:
     environment:
       AI_SERVICE_URL: http://ai:8100
     ports:
-      - "8100:8100"
+      - "${AI_HOST_PORT:-8100}:8100"
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8100/health/live')"]
       interval: 10s
@@ -39,7 +39,7 @@ services:
       DATABASE_URL: postgresql+psycopg://postgres:postgres@db:5432/maie6000c
       AI_SERVICE_URL: http://ai:8100
     ports:
-      - "8000:8000"
+      - "${API_HOST_PORT:-8000}:8000"
     depends_on:
       db:
         condition: service_healthy
