@@ -1,4 +1,4 @@
-.PHONY: install-dev up down reset test smoke migrate seed lint rehearsal
+.PHONY: install-dev up down reset test smoke migrate seed lint
 
 install-dev:
 	pip install -e .[dev]
