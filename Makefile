@@ -26,6 +26,3 @@ seed:
 
 lint:
 	ruff check .
-
-rehearsal:
-	bash scripts/student_rehearsal.sh
